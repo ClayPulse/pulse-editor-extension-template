@@ -12,5 +12,5 @@ updates:
     allow:
       - dependency-type: "direct"
       - dependency-name: "@pulse-editor/*"
-    ignore:
-      - dependency-name: "*"
+    versioning-strategy: increase
+    
