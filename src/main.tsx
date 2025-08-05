@@ -1,11 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./tailwind.css";
 import config from "../pulse.config";
+import { useLoading } from "@pulse-editor/react-api";
 
 export const Config = config;
 
 export default function Main() {
   const [count, setCount] = useState<number>(0);
+  const { isReady, toggleLoading } = useLoading();
+
+  useEffect(() => {
+    if (isReady) {
+      toggleLoading(false);
+    }
+  }, [isReady, toggleLoading]);
 
   return (
     <div className="p-2">
